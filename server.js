@@ -51,7 +51,7 @@ app.post("/find", (req,res) => {
 
   var per = Person.find({ name : UserName}, (err, data) => {
     if (err){
-      console.log(err);
+      res.send(err);
     }
     else {
       var n = data[0].name;
