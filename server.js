@@ -51,7 +51,14 @@ app.post("/find", (req,res) => {
 
   var per = Person.find({ name : UserName}, (err, data) => {
     if (err){
-      res.send(err);
+      res.write('<body style="background-color: #537895; background-image: linear-gradient(135deg, #537895 0%, #09203f 74%);"</body>');
+      res.write('<br>');
+      res.write('<br>');
+      res.write('<br>');
+      res.write('<br>');
+      res.write('<br>');
+      res.write('<p style="text-align: center ;font-size: 25px; color:#7FB5FF; font-family: Arial"> Name not found </p>');
+      res.write('<a href="/">Enter your details here<a>');
     }
     else {
       var n = data[0].name;
@@ -60,14 +67,16 @@ app.post("/find", (req,res) => {
       var p = data[0].phone;
 
       res.write('<body style="background-color: #537895; background-image: linear-gradient(135deg, #537895 0%, #09203f 74%);"</body>');
-      res.write('<h1 style="text-align:center"> Your Details </h2>');
-      res.write('Your name : ' + n);
+      res.write('<h1 style="text-align:center; color:#B7CADB"> Your Details </h2>');
       res.write('<br>');
-      res.write('Your age : ' + a);
       res.write('<br>');
-      res.write('Your city : ' + c);
       res.write('<br>');
-      res.write('Your phone number : ' + p);
+      res.write('<br>');
+      res.write('<br>');
+      res.write(`<p style="text-align: center ;font-size: 25px; color:#7FB5FF; font-family: Arial">Your name : ${n}</p>`);
+      res.write(`<p style="text-align: center ;font-size: 25px; color:#7FB5FF; font-family: Arial">Your age : ${a}</P>`);
+      res.write(`<p style="text-align: center ;font-size: 25px; color:#7FB5FF; font-family: Arial">Your city : ${c}</p>`);
+      res.write(`<p style="text-align: center ;font-size: 25px; color:#7FB5FF; font-family: Arial">Your phone number : ${p}</p>`);
       res.send();
     };
   });
